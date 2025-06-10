@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Healing Neem Tree</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+ body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.7;
+  color: #333;
+  background-color: #f8f8f8;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+    html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-padding {
+      padding: 20px 0;
+    }
+
+    .bg-light {
+      background-color: #eaf6e1;
+    }
+
+    header {
+  background: #386641;
+  color: #fff;
+  padding: 0.3rem 0; /* reduced from 1rem */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+ header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4em; /* reduced from 1.8em */
+}
+
+    header h1 a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95em; 
+  position: relative;
+}
+
+    nav ul li a:hover {
+      color: #a3b899;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('https://m.media-amazon.com/images/I/51j0W4oSahL.jpg') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 650px;
+      padding: 180px 15px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5em;
+      margin-bottom: 25px;
+      line-height: 1.2;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #386641;
+      font-size: 3em;
+      position: relative;
+    }
+
+    h3::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background-color: #6a9955;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+    }
+
+    h4 {
+      font-family: 'Playfair Display', serif;
+      color: #6a9955;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .feature-item {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      text-align: justify;
+      transition: all 0.4s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature-item ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .feature-item ul li {
+      padding-left: 24px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .feature-item ul li:before {
+      content: "🍃";
+      position: absolute;
+      left: 0;
+    }
+
+    #names p {
+      text-align: center;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    #names em {
+      color: #386641;
+    }
+
+    #facts ul {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    #facts ul li {
+      background-color: #fff;
+      padding: 20px 25px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    #facts ul li:before {
+      content: '🌿';
+      font-size: 1.5em;
+      margin-right: 10px;
+      color: #6a9955;
+    }
+
+    #facts ul li strong {
+      color: #386641;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .gallery-note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    footer {
+      background: #386641;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1><a href="#home">Healing Neem Tree</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#environment">Environment</a></li>
+          <li><a href="#medicinal">Medicinal Uses</a></li>
+          <li><a href="#facts">Fun Facts</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+  <div class="hero-content">
+    <h2>Uncover the healing power and timeless legacy of the Neem Tree, nature’s own pharmacy.</h2>
+    <p>Explore the environmental, medicinal, and cultural significance of the Neem Tree.</p>
+  </div>
+</section>
+
+<section id="names" class="section-padding bg-light">
+  <div class="container">
+    <h3>Scientific and Common Names</h3>
+    <p>• Scientific Name: <em>Azadirachta indica</em></p>
+    <p>• Common Names: Neem Tree, Indian Lilac, Nimba, Neem</p>
+  </div>
+</section>
+<section id="about" class="section-padding">
+  <div class="container">
+    <h3>Know About Our Tree: Neem Tree Features</h3>
+    <div class="content-grid">
+      <div class="feature-item"><h4>Height</h4><p>Grows between 15 to 30 meters tall, with a broad crown.</p></div>
+      <div class="feature-item"><h4>Lifespan</h4><p>Can live for 150 to 200 years or more.</p></div>
+      <div class="feature-item"><h4>Leaves</h4><p>Compound and pinnate leaves with 8–19 toothed leaflets, dark green in color.</p></div>
+      <div class="feature-item"><h4>Bark</h4><p>Rough, deeply fissured, and dark brown to gray in appearance.</p></div>
+      <div class="feature-item"><h4>Flowers & Fruits</h4><p>Produces small, white, fragrant flowers and yellow-green oval drupes, each with a single seed.</p></div>
+    </div>
+  </div>
+</section>
+<section id="neem-pdf" class="pdf-viewer" style="padding: 2rem; text-align: center;">
+  <h2 style="font-size: 2rem; margin-bottom: 1rem;">Neem Tree Story</h2>
+  <div style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
+    <iframe 
+      src="https://drive.google.com/file/d/1uQKT5H8SgBe7g65yoAfdaMFJViGBlsYb/preview" 
+      frameborder="0" 
+      allowfullscreen 
+      style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border: none;">
+    </iframe>
+  </div>
+</section>
+
+<section id="medicinal" class="section-padding">
+  <div class="container">
+    <h3>Medicinal and Traditional Uses</h3>
+    <div class="content-grid">
+      <div class="feature-item"><h4>Leaves</h4><p>Used for treating skin conditions, infections, malaria, and as a natural pesticide.</p></div>
+      <div class="feature-item"><h4>Bark</h4><p>Used to treat fevers, inflammation, and pain.</p></div>
+      <div class="feature-item"><h4>Seeds</h4><p>Primary source of neem oil, used for skin diseases, hair care, and in agriculture.</p></div>
+      <div class="feature-item"><h4>Twigs</h4><p>Used as natural toothbrushes (“datun”) in traditional oral hygiene practices.</p></div>
+      <div class="feature-item"><h4>Flowers</h4><p>Used in aromatherapy and some traditional Indian recipes for their fragrance and medicinal properties.</p></div>
+      <div class="feature-item"><h4>Neem Oil</h4><p>Possesses antibacterial, antifungal, and insecticidal properties; widely used in skincare and farming.</p></div>
+    </div>
+  </div>
+</section>
+
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px;">
+  <div style="width: 100%; max-width: 400px; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
+    <iframe 
+      src="https://www.youtube.com/embed/2n0r52gUUMo" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen 
+      style="width: 100%; height: 100%; border: none;">
+    </iframe>
+  </div>
+</div>
+
+<section id="environment" class="section-padding bg-light">
+  <div class="container">
+    <h3>Neem Tree: Environmental Impact</h3>
+    <div class="content-grid">
+      <div class="feature-item"><h4>Air Purifier</h4><p>Absorbs pollutants, reduces carbon dioxide levels, and increases oxygen in the atmosphere.</p></div>
+      <div class="feature-item"><h4>Pesticide Tree</h4><p>Its natural insecticidal properties reduce the need for harmful chemical pesticides.</p></div>
+      <div class="feature-item"><h4>Soil Health</h4><p>Improves soil fertility and structure; neem cake is used as an organic biofertilizer.</p></div>
+      <div class="feature-item"><h4>Drought Resistance</h4><p>Thrives in arid and semi-arid climates with minimal water needs.</p></div>
+      <div class="feature-item"><h4>Erosion Control</h4><p>Deep root system helps prevent soil erosion, especially in dry regions.</p></div>
+    </div>
+  </div>
+</section>
+<section id="facts" class="section-padding">
+  <div class="container">
+    <h3>Fun Facts and Myths</h3>
+    <ul>
+      <li><strong>Mythological Significance:</strong> In Hindu mythology, the neem tree is considered the dwelling place of the goddess Sitala, protector against smallpox.</li>
+      <li><strong>Village Pharmacy:</strong> Every part of the neem tree—leaves, bark, seeds, and oil—has medicinal use, earning it this nickname in rural India.</li>
+      <li><strong>Tree of the 21st Century:</strong> Declared so by the United Nations due to its environmental, medicinal, and agricultural value.</li>
+      <li><strong>Natural Mosquito Repellent:</strong> Burning neem leaves is a traditional method for repelling mosquitoes in villages.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="gallery" class="section-padding bg-light">
+  <div class="container">
+    <h3>Gallery</h3>
+    <div class="image-gallery">
+      <img src="https://www.saharanpurnursery.in/cdn/shop/files/1_46224a94-5c01-4046-9134-9db7f2b9032e_800x800.jpg?v=1718790570" alt="Healthy Neem tree in pot">
+      <img src="https://www.saharanpurnursery.in/cdn/shop/files/Neem_tree_leaves_800x800.jpg?v=1718790570" alt="Close-up of Neem tree leaves">
+      <img src="https://ezgrogarden.com/wp-content/uploads/2010/07/Neem-Tree1-1024x675.jpg" alt="Full-grown Neem tree">
+      <img src="https://www.plantitude.co.ke/cdn/shop/files/Neemtree.jpg?v=1747597238&width=1100" alt="Tall Neem tree in field">
+      <img src="https://thewholesaler.in/cdn/shop/products/Neem-Leaves-Neem-Niboli-Azadirachta-Indica-Neem-patti-TheWholesalerCo-35653860_360x@2x.jpg?v=1739627045" alt="Neem leaves and fruit close-up">
+    </div>
+    <p class="gallery-note">Thanks for visiting 🫶 ! Save Trees, Save Life 🌿</p>
+  </div>
+</section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 The Majestic Banyan Tree. All rights reserved.</p>
+      <p>Let's appreciate, protect, and learn from this incredible tree for generations to come.</p>
+      <p>Energy and Environment Cell, BIT Wardha</p>
+    </div>
+<footer style="text-align: center; font-size: 10px; color: #888; padding: 10px;">
+  Developed by <a href="https://instagram.com/fos9x" target="_blank" style="text-decoration: none;">Piyush Deshkar</a>
+</footer>
+
+<style>
+  footer a:link { color: blue; }
+  footer a:visited { color: purple; }
+</style>
+
+</body>
+</html>naem
